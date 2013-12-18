@@ -34,6 +34,7 @@
                 $("#btnSalir").click(function() {
                     location.href = "inicio.jsp?menu=2&op=6";
                 });
+
                 $("#btnNuevaCuenta").click(function() {
                     if ($('#sltAnioFiltro').val() != 0) {
                         var URL = 'alta_nueva_cuenta.jsp?anioFiltro=' + anioValFiltro;
@@ -41,11 +42,8 @@
                     } else {
                         alert("Seleciona un Año");
                     }
-                    /*$("#inpCuentaNuevaCuenta").val("");
-                     $('#sltAnioNuevaCuenta > option[value="0"]').attr('selected', 'selected');
-                     $('#sltPadreNuevaCuenta > option[value="0"]').attr('selected', 'selected');
-                     abrirDialogNuevacuenta();*/
                 });
+
                 $("#sltAnioFiltro").change(function() {
                     var selectedOption = $(this).find('option:selected');
                     anioValFiltro = $(selectedOption).val();
@@ -62,15 +60,9 @@
 
             $(function() {
                 $("#btnNuevaCuenta").button();
-                /*$("#btnNuevoHijo").button();
-                 $("#btnEditar").button();
-                 $("#btnCatCuenGuardar").button();
-                 $("#btnCatCuenGuardarHijo").button();
-                 $("#btnCatCuenModif").button();
-                 $("#btnCatCuenElimi").button();*/
                 $("#btnSalir").button();
-
             });
+
             function muestra_tabla(anio) {
                 $.ajax({
                     url: "dependencias_cuentas/muestra_tabla.jsp",
@@ -89,6 +81,7 @@
                     }
                 });
             }
+
             function linkNuevo(idForm, anioForm, cuentaForm, padreForm, nomCuenta) {
                 idCuentaV = idForm;
                 anioV = anioForm;
@@ -98,6 +91,7 @@
                 var URL = "crear_nuevo_hijo_cuenta.jsp?anioForm=" + anioV + "&nomCuentaForm='" + nombreCuenta + "'&idPadreForm=" + idCuentaV;
                 var vWinPres = window.open(URL, "Alta Nuevo Hijo Cuenta", "status=yes,scrollbars=yes,resizable=no, width=600,height=600");
             }
+
             function linkEditar(idForm, anioForm, cuentaForm, padreForm, nomCuenta) {
                 idCuentaV = idForm;
                 anioV = anioForm;
@@ -107,6 +101,7 @@
                 var URL = 'editar_nueva_cuenta.jsp?anioform=' + anioV + "&idCuentaForm=" + idCuentaV + "&idPadreForm=" + idPadreV + "&cuentaForm=" + cuentaV + "&nomCuenForm=" + nombreCuenta;
                 var vWinPres = window.open(URL, "Editar Nueva Cuenta", "status=yes,scrollbars=yes,resizable=no, width=600,height=600");
             }
+
             function linkEliminar(idForm, anioForm, cuentaForm, padreForm, nomCuenta) {
                 idCuentaV = idForm;
                 anioV = anioForm;
@@ -125,6 +120,7 @@
                 $("#centro").slideUp();
                 $("#inpNombreCuentaNuevaCuenta").val("");
             }
+
             function llenar_hijos_tabla(idPapa, anioPapa,nomCuen) {
                 $('#linkver'+idPapa).hide();
                 $.ajax({
@@ -152,7 +148,6 @@
         <style type="text/css">
             table tbody tr td{
                 text-align: center;
-
             }
 
             .datagrid table { border-collapse: collapse; text-align: left; width: 100%; }
@@ -197,12 +192,14 @@
                 margin: 0em;
                 padding: 4px;
             }
+
             #nuevoHijo,#nuevaCuenta,#editar{
                 display: inline-block;
                 margin: 1em 1em 1em 1em;
                 padding: 2px;
                 width: 10em;
             }
+
             #mensajeF{
                 display: inline-block;
                 margin: 0em 0 6px 170px;
@@ -213,21 +210,26 @@
                 text-align: center;
                 font-weight:bold;
             }
+
             #icon{
                 width: 16px;
                 height: 16px;
                 background-image: url(images/ui-icons_0078ae_256x240.png);
                 background-position: -80px -112px;
             }
+
             #mitablaDepenCuentas tbody tr{
                 cursor: pointer;
             }
+
             button{
                 display: inline-block;
             }
+
             .colorr {
                 color: #FF0000;
             }
+
             #sltAnioFiltro {
                 border-radius: 20px;
                 border:1px solid #006679;
@@ -235,10 +237,12 @@
                 display:inline-block;
                 padding: 2px;
             }
+
             #lblAnioFiltro{
                 display: inline-block;
                 font-size: 22px;
             }
+
             #imagenVer{
                 width:39px;
                 height:24px;
@@ -246,6 +250,7 @@
                 background-position: -144px -93px;
                 background-size: 136px;
             }
+
         </style>
         <link href="../../estilos/sic.css" rel="stylesheet" type="text/css">
     </head>
